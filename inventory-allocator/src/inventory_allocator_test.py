@@ -56,5 +56,15 @@ class TestInventoryAllocator(unittest.TestCase):
         self.assertEqual(result, expected_result)
 
 
+    def test_both_empty(self):
+
+        order_list = {}
+        inventory_distribution = []
+        expected_result = []
+
+        result = inventory_allocator(order_list, inventory_distribution)
+        self.assertEqual(result, expected_result)
+
+
 if __name__ == "__main__":
     unittest.main()
