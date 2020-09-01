@@ -13,13 +13,13 @@ def update_shipment_distribution(shipment_distribution, warehouse_name, fruit, o
 def inventory_allocator(order_list, inventory_distribution):
     """ Creates a shipment_distribution based on the given order_list and inventory_distribution """
 
-    if order_list == {}:                            # if order list is empty
+    if order_list == {} or inventory_distribution == []:    # if order list or inventory is empty
         return []
 
-    shipment_distribution = {}                      # to store the output
-    while order_list.keys():                        # iterate until order list is empty
-        fruit = list(order_list.keys())[0]          # select the first fruit from the order list
-        order_qty = order_list[fruit]               # obtain order qty for the given fruit
+    shipment_distribution = {}                              # to store the output
+    while order_list.keys():                                # iterate until order list is empty
+        fruit = list(order_list.keys())[0]                  # select the first fruit from the order list
+        order_qty = order_list[fruit]                       # obtain order qty for the given fruit
 
         for warehouse_record in inventory_distribution:                     # loop thru each warehouse
             warehouse_name = warehouse_record['name']
